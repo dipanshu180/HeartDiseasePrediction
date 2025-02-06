@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+
+        <!-- Prediction form -->
+        <form action="/predict" method="POST">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+
+            <label for="cp">Chest Pain Type (cp):</label>
+            <input type="text" id="cp" name="cp" required>
+
+            <label for="thalach">Maximum Heart Rate (thalach):</label>
+            <input type="text" id="thalach" name="thalach" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
